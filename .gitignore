@@ -1,0 +1,7 @@
+shelf/
+target/
+src/main/resources/input
+src/main/resources/output
+/src/main/java/META-INF/JAXB/
+/.idea
+*TCPEvolved.iml

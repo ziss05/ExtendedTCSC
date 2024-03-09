@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tree">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="node" type="Node" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Node" abstract="true" />
+
+    <xs:complexType name="constructor">
+        <xs:complexContent>
+            <xs:extension base="Node">
+                <xs:sequence>
+                    <xs:element name="left" type="Node"></xs:element>
+                    <xs:element name="right" type="Node"></xs:element>
+                </xs:sequence>
+                <xs:attribute name="type" type="type" use="required">
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SEQ"/>
+            <xs:enumeration value="AND"/>
+            <xs:enumeration value="SYNCAND"/>
+            <xs:enumeration value="XORC"/>
+            <xs:enumeration value="XORD"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="basicService">
+        <xs:complexContent>
+            <xs:extension base="Node">
+                <xs:sequence>
+                    <xs:element name="quadruple" type="quadruple" maxOccurs="unbounded">
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="identifier" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="quadruple">
+        <xs:sequence maxOccurs="1">
+            <xs:element name="d1" type="positiveDec"/>
+            <xs:element name="c1" type="positiveDec"/>
+            <xs:element name="d2" type="positiveDec"/>
+            <xs:element name="c2" type="positiveDec"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="positiveDec">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema> 

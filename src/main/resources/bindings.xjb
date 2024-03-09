@@ -1,0 +1,22 @@
+<jxb:bindings
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+        version="1.0">
+    <jxb:bindings schemaLocation="TCP.xsd">
+        <jxb:bindings node="//xs:simpleType[@name='type']/xs:restriction/xs:enumeration[@value='AND']">
+            <jxb:typesafeEnumMember name="AND"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xs:simpleType[@name='type']/xs:restriction/xs:enumeration[@value='SYNCAND']">
+            <jxb:typesafeEnumMember name="SYNCAND"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xs:simpleType[@name='type']/xs:restriction/xs:enumeration[@value='SEQ']">
+            <jxb:typesafeEnumMember name="SEQ"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xs:simpleType[@name='type']/xs:restriction/xs:enumeration[@value='XORD']">
+            <jxb:typesafeEnumMember name="XORD"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xs:simpleType[@name='type']/xs:restriction/xs:enumeration[@value='XORC']">
+            <jxb:typesafeEnumMember name="XORC"/>
+        </jxb:bindings>
+    </jxb:bindings>
+</jxb:bindings>
